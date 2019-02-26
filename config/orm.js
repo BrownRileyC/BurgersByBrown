@@ -1,34 +1,34 @@
 var connection = require("./connection.js");
 
 var orm = {
-  selectAll: function(tableInput) {
+  selectAll: function(tableInput, callback) {
     var queryString = "SELECT * FROM ??";
     connection.query(queryString, [tableInput], function(err, result) {
       if (err) throw err;
       console.log(result);
-      return result;
+      callback(result);
     });
   },
-  insertOne: function(tableInput, burgerName, devoured) {
-    var queryString = "INSERT INTO ?? (burger_name, devoured) VALUES (??, ??)";
+  insertOne: function(tableInput, burgerName, callback) {
+    var queryString = "INSERT INTO ?? (burger_name, devoured) VALUES (??, 0)";
     console.log(queryString);
-    connection.query(queryString, [tableInput, burgerName, devoured], function(err, result) {
+    connection.query(queryString, [tableInput, burgerName], function(err, result) {
       if (err) throw err;
       console.log(result);
-      return result;
+      callback(result);
     });
   },
-  updateOne: function(tableInput, devoured, id) {
+  updateOne: function(tableInput, id, callback) {
     var queryString =
-      "UPDATE ?? SET devoured = ? WHERE id = ?";
+      "UPDATE ?? SET devoured = 1 WHERE id = ?";
 
     connection.query(
       queryString,
-      [tableInput, devoured, id],
+      [tableInput, id],
       function(err, result) {
         if (err) throw err;
         console.log(result);
-        return result;
+        callback(result);
       }
     );
   }
