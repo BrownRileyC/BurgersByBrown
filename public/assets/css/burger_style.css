@@ -1,0 +1,29 @@
+.column {
+  margin: 0 5%;
+  float: left;
+  width: 40%;
+}
+
+li {
+    padding: 5px;
+    margin: 5px;
+    background: #faebd7;
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+  
+  .create-form {
+    padding: 5px;
+    margin: 0 auto;
+    background: aqua;
+    width: 25%;
+
+    clear: both;
+  }
+  
+  .form-group {
+    margin-bottom: 5px;
+  }
+  

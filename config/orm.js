@@ -10,7 +10,7 @@ var orm = {
     });
   },
   insertOne: function(tableInput, burgerName, callback) {
-    var queryString = "INSERT INTO ?? (burger_name, devoured) VALUES (??, 0)";
+    var queryString = 'INSERT INTO ?? (burger_name, devoured) VALUES ("'+burgerName+'", 0)';
     console.log(queryString);
     connection.query(queryString, [tableInput, burgerName], function(err, result) {
       if (err) throw err;
@@ -27,7 +27,7 @@ var orm = {
       [tableInput, id],
       function(err, result) {
         if (err) throw err;
-        console.log(result);
+        console.log("Update "+result);
         callback(result);
       }
     );

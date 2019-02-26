@@ -1,35 +1,38 @@
 <h1>Burgers By Brown!</h1>
 
-<h2>Burgers to Eat</h2>
+<div class="column">
+    <h2>Burgers to Eat</h2>
 
-<ul>
-    {{#each burgers}}
-    {{#unless devoured}}
-    <li>
-        {{name}}
+    <ul>
+        {{#each burgers}}
+        {{#unless devoured}}
+        <li>
+            {{burger_name}}
 
-        <button class="eat-burger" data-id="{{id}}" data-newState="{{devoured}}">Eat Me!</button>
-    </li>
+            <button class="eat-burger" data-id="{{id}}" data-newState="1">Eat Me!</button>
+        </li>
 
-    {{/unless}}
-    {{/each}}
-</ul>
+        {{/unless}}
+        {{/each}}
+    </ul>
+</div>
 
-<h2>Burgers Already Eaten</h2>
+<div class="column">
+    <h2>Burgers Already Eaten</h2>
 
-<ul>
-    {{#each burgers}}
-    {{#if devoured}}
-    <li>
-        {{name}}
-    </li>
-    {{/if}}
-    {{/each}}
-</ul>
+    <ul>
+        {{#each burgers}}
+        {{#if devoured}}
+        <li>
+            {{burger_name}}
+        </li>
+        {{/if}}
+        {{/each}}
+    </ul>
+</div>
 
-<h2>Add a Custom Burger</h2>
 <form class="create-form">
-
+<h2>Add a Custom Burger</h2>
     <div class="form-group">
         <label for="newBurger">Burger Name:</label>
         <input type="text" id="newBurger" name="name">

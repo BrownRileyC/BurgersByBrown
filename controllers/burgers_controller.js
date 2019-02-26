@@ -22,11 +22,14 @@ router.post("/api/burgers", function (req, res) {
 });
 
 router.put("/api/burgers/:id", function(req, res) {
-    burger.updateOne('burgers', req.params.id, function(data) {
-        if (result.changedRows == 0) {
+    burger.updateOne(req.params.id, function(results) {
+        console.log('router put')
+        if (results.changedRows == 0) {
             // If no rows were changed, then the ID must not exist, so 404
+            console.log('into if')
             return res.status(404).end();
           } else {
+            console.log('into else')
             res.status(200).end();
           }
     })
