@@ -18,19 +18,32 @@ var orm = {
       callback(result);
     });
   },
-  updateOne: function(tableInput, id, callback) {
+  updateOne: function(tableInput, devoured, id, callback) {
     var queryString =
-      "UPDATE ?? SET devoured = 1 WHERE id = ?";
+      "UPDATE ?? SET devoured = ? WHERE id = ?";
 
     connection.query(
       queryString,
-      [tableInput, id],
+      [tableInput, devoured, id],
       function(err, result) {
         if (err) throw err;
         console.log("Update "+result);
         callback(result);
       }
     );
+  },
+  deleteOne: function(tableInput, id, callback) {
+    var queryString = 
+      "DELETE FROM ?? WHERE id = ?";
+    connection.query(
+      queryString,
+      [tableInput, id],
+      function(err, result) {
+        if (err) throw err;
+        console.log("delete "+result);
+        callback(result);
+      }
+    )
   }
 };
 
