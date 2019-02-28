@@ -32,6 +32,11 @@ body {
   width: 50%;
 }
 
+.burgerPic {
+  width: 100px;
+  text-align: center;
+}
+
 li {
     padding: 5px;
     margin: 5px;
