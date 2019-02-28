@@ -1,43 +1,59 @@
-<h1>Burgers By Brown!</h1>
+<h1 class="header">Burgers By Brown!</h1>
 
-<div class="column">
-    <h2>Burgers to Eat</h2>
-
-    <ul>
-        {{#each burgers}}
-        {{#unless devoured}}
-        <li>
-            {{burger_name}}
-
-            <button class="change-state-burger" data-id="{{id}}" data-state="1">Eat Me!</button>
-        </li>
-
-        {{/unless}}
-        {{/each}}
-    </ul>
+<div class="centerText">
+    <h2>Welcome to Burgers By Brown, the burger tracking website.</h2>
+    <p>Below you will find three sections: "Burgers to Eat," "Burgers Already Eaten," and "Add a Custom Burger."</p>
+    <p>In the first section you will see the list of burgers from our database that are not currently listed as eaten.
+        If you want to "eat" that burger go ahead and click that button that says "eat me" and watch as it changes place
+        and appears in the proper list.</p>
+    <p>In the next section you will find the list of burgers people have already eaten. If it sounds good you can order
+        another of any burger on that list and it will show up back in the "Burgers to Eat" list.</p>
+    <p>Doubtless you've noticed the button that says "86 Me!" In case you aren't in the know for restaurant lingo that
+        means to take it off the menu. So if you click that button, watch out, because that burger is out of here.</p>
+    <p>Now at the bottom you'll find that if there isn't a burger to suit your tastes on our menu already you can simply
+        add your own specialty burger simply by typing in the name and hitting that "Make my Burger" button!</p>
 </div>
+<div class="menuBox">
+    <div class="column">
+        <h2>Burgers to Eat</h2>
 
-<div class="column">
-    <h2>Burgers Already Eaten</h2>
+        <ul>
+            {{#each burgers}}
+            {{#unless devoured}}
+            <li>
+                <p>{{burger_name}}</p>
+                <button class="change-state-burger" data-id="{{id}}" data-state="1">Eat Me!</button>
+                <button class="remove-burger" data-id="{{id}}">86 Me!</button>
+            </li>
 
-    <ul>
-        {{#each burgers}}
-        {{#if devoured}}
-        <li>
-            {{burger_name}}
-            <button class="change-state-burger" data-id="{{id}}" data-state="0">Order Me Again!</button>
-            <button class="remove-burger" data-id="{{id}}">86 Me!</button>
-        </li>
-        {{/if}}
-        {{/each}}
-    </ul>
+            {{/unless}}
+            {{/each}}
+        </ul>
+    </div>
+
+    <div class="column">
+        <h2>Burgers Already Eaten</h2>
+
+        <ul>
+            {{#each burgers}}
+            {{#if devoured}}
+            <li>
+                <p>{{burger_name}}</p>
+                
+                <button class="change-state-burger" data-id="{{id}}" data-state="0">Order Me Again!</button>
+                <button class="remove-burger" data-id="{{id}}">86 Me!</button>
+            </li>
+            {{/if}}
+            {{/each}}
+        </ul>
+    </div>
 </div>
-
 <form class="create-form">
-<h2>Add a Custom Burger</h2>
+    <h2>Add a Custom Burger</h2>
+    <img src="../public/assets/img/burger.PNG">
     <div class="form-group">
         <label for="newBurger">Burger Name:</label>
         <input type="text" id="newBurger" name="name">
     </div>
-    <button type="submit">Make Burger</button>
+    <button type="submit">Make my Burger</button>
 </form>

@@ -1,29 +1,51 @@
+body {
+  background-image: url(../img/background-pattern.png)
+}
+
+.header {
+  margin: 0 auto;
+  width: 20%;
+  text-align: center;
+  color: yellow;
+  background-color: red;
+}
+
+.centerText {
+  margin: 3% auto;
+  width: 75%;
+  text-align: center;
+}
+.menuBox {
+  width: 50%;
+  margin: 0 auto;
+}
 .column {
-  margin: 0 5%;
+  box-sizing: border-box;
+  text-align: center;
+  border-width: 2px;
+  border-color: black;
+  border-style: ridge;
+  background-color: whitesmoke;
+  color:red;
+  margin: 0 auto;
   float: left;
-  width: 40%;
+  width: 50%;
 }
 
 li {
     padding: 5px;
     margin: 5px;
-    background: #faebd7;
   }
   
-  .label {
-    font-weight: bold;
-  }
-  
-  .create-form {
+.create-form {
     padding: 5px;
+    text-align: center;
     margin: 0 auto;
-    background: aqua;
     width: 25%;
-
     clear: both;
   }
   
-  .form-group {
+.form-group {
     margin-bottom: 5px;
   }
   
